@@ -14,7 +14,7 @@ class limits(
   $fragments_dir = '/etc/puppet/tmp/limits_fragments.d/'
   $tmp_limits_conf = '/etc/puppet/tmp/limits.conf'
 
-  file { $fragments_dir:
+  file { [ '/etc/puppet/tmp', $fragments_dir ]:
     ensure  => directory,
     recurse => true,
     purge   => true,
