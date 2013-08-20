@@ -7,7 +7,7 @@
 #    $value - value of limit
 #
 # Actions:
-#    creates a fragment fil corresponing to each limit entry  
+#    creates a fragment fil corresponing to each limit entry
 define limits::fragment (
   $value
 ) {
