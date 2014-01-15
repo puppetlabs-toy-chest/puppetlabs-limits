@@ -1,0 +1,4 @@
+# puppi is a dependency of java and firewall is an optional dependency
+fixtures:
+  symlinks:
+    'limits': "#{source_dir}"

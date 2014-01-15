@@ -41,8 +41,8 @@ define limits::fragment (
   # These regex are taken from the augeas Limits lens
   # https://github.com/hercules-team/augeas/blob/master/lenses/limits.aug
   if ( $limit_type   !~ /^(hard|soft|-)$/ or
-       $limit_domain !~ /^([%@]?[A-Za-z0-9_.-]+|\*)$/ or
-       $limit_item   !~ /^[A-Za-z]+$/ ) {
+        $limit_domain !~ /^([%@]?[A-Za-z0-9_.-]+|\*)$/ or
+        $limit_item   !~ /^[A-Za-z]+$/ ) {
     fail("invalid limits format: ${limit_domain}/${limit_type}/${limit_item}")
   }
 
