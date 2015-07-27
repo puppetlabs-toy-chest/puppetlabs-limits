@@ -46,7 +46,7 @@ define limits::fragment (
     fail("invalid limits format: ${limit_domain}/${limit_type}/${limit_item}")
   }
 
-  if ( $value and $value !~ /^([A-Za-z0-9_.\/-]+)$/ ) {
+  if ( $value and "${value}" !~ /^([A-Za-z0-9_.\/-]+)$/ ) {
     fail("invalid value for limits: ${value}. See man 5 limits.conf")
   }
 
