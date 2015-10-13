@@ -18,6 +18,22 @@ describe 'limits::fragment' do
     end
   end
 
+  describe 'simple title defined value as integer' do
+    let(:title) { 'foo/hard/nproc' }
+    let(:params) { {
+        :value => 100
+      }}
+    it 'should set foo hard nproc 100 in /etc/security/limits.conf' do
+      title ='limits_conf/foo/hard/nproc'
+      should contain_augeas(title).with('context' => '/files/etc/security/limits.conf')
+      changes = catalogue(:define).resource('augeas', title).send(:parameters)[:changes]
+      changes.should include "set domain[last()+1] foo",
+                             "set domain[last()]/type hard",
+                             "set domain[last()]/item nproc",
+                             "set domain[last()]/value 100"
+    end
+  end
+
   describe 'simple non title defined values' do
     let(:title) { 'my_limits_config' }
     let(:params) { {
